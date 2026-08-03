@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Text Message Sign-Up — Seattle Hill Ward</title>
-<meta name="description" content="Sign up to receive informational coordination text messages from the Seattle Hill Ward.">
+<title>Text Message Sign-Up — Personal Assistant Network</title>
+<meta name="description" content="Sign up to receive informational coordination text messages from Personal Assistant Network (PAN).">
 <style>
   :root{
     --paper:#FBF9F5;
@@ -50,6 +50,11 @@
   }
   label.field{display:block;margin-bottom:18px;}
   .field-label{display:block;font-weight:600;font-size:15px;margin-bottom:6px;}
+  select{
+    width:100%;padding:12px 14px;font-size:16px;
+    border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--ink);
+  }
+  select:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 3px rgba(46,94,110,.18);}
   input[type="text"],input[type="tel"]{
     width:100%;padding:12px 14px;font-size:16px;
     border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--ink);
@@ -115,12 +120,21 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="eyebrow">Seattle Hill Ward</p>
+      <p class="eyebrow">Personal Assistant Network</p>
       <h1>Sign up for text updates</h1>
-      <p class="sub">Get event reminders, RSVP requests, volunteer sign-ups, and carpool coordination for our congregation — sent by text.</p>
+      <p class="sub">Get event reminders, RSVP requests, volunteer sign-ups, and carpool coordination for your group — sent by text.</p>
     </header>
 
     <form class="card" id="signup-form" novalidate>
+      <label class="field" for="group">
+        <span class="field-label">Which group are you joining?</span>
+        <select id="group" name="group" required>
+          <option value="">Select a group…</option>
+          <option value="Seattle Hill Ward">Seattle Hill Ward (congregation)</option>
+          <option value="Family">Family</option>
+        </select>
+      </label>
+
       <label class="field" for="name">
         <span class="field-label">Full name</span>
         <input type="text" id="name" name="name" autocomplete="name" required>
@@ -134,10 +148,10 @@
 
       <div class="consent">
         <input type="checkbox" id="consent" name="consent" required>
-        <label for="consent">I agree to receive informational and coordination text messages from Seattle Hill Ward. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="../privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="../terms" target="_blank" rel="noopener">Terms</a>.</label>
+        <label for="consent">I agree to receive informational and coordination text messages from Personal Assistant Network (PAN). Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="../privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="../terms" target="_blank" rel="noopener">Terms</a>.</label>
       </div>
 
-      <p class="not-condition">Providing your consent is optional. It is not required to attend activities or to be a member of the congregation.</p>
+      <p class="not-condition">Providing your consent is optional. It is not required to attend activities or to be a member of any group.</p>
 
       <button type="submit">Sign me up</button>
     </form>
@@ -153,7 +167,7 @@
     <div class="divider"></div>
     <footer>
       Questions? Contact <a href="mailto:nielsonpa@gmail.com">nielsonpa@gmail.com</a> or 801-921-9714.<br>
-      <a href="../privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms">Terms &amp; Conditions</a>
+      <a href="../privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="../join">Text-to-join</a>
     </footer>
   </div>
 
@@ -167,13 +181,16 @@
     var confirm = document.getElementById('confirm');
     form.addEventListener('submit', function(e){
       e.preventDefault();
+      var group = form.group.value;
       var name = form.name.value.trim();
       var phone = form.phone.value.trim();
       var consent = form.consent.checked;
+      if(!group){ alert('Please select which group you are joining.'); return; }
       if(!name || !phone){ alert('Please enter your name and mobile number.'); return; }
       if(!consent){ alert('Please check the consent box to receive text messages.'); return; }
 
-      // TODO: send { name, phone } to your capture endpoint here.
+      // TODO: POST { group, name, phone, consentText, timestamp } to your consent-capture
+      // endpoint. A durable consent record is required for TCPA compliance.
 
       form.style.display = 'none';
       confirm.style.display = 'block';
