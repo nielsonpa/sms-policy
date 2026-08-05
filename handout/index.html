@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Printable Handout — SMS Assistant</title>
+<meta name="description" content="Printable handout distributed at in-person meetings: text JOIN to (425) 534-5348 to receive SMS Assistant coordination text messages.">
+<style>
+  :root{
+    --paper:#FBF9F5;--ink:#1E2A33;--muted:#5B6670;
+    --accent:#2E5E6E;--accent-deep:#224854;--border:#C9C3B6;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;font-size:16px;}
+  .sheet{max-width:680px;margin:28px auto;background:#fff;border:1px solid var(--border);padding:44px 48px;}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 8px;}
+  h1{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:600;font-size:26px;margin:0 0 6px;}
+  .sub{color:var(--muted);margin:0 0 28px;}
+  .cta{border:2px solid var(--accent);border-radius:12px;padding:28px 24px;margin:0 0 22px;text-align:center;}
+  .cta .kw{font-family:"Iowan Old Style",Georgia,serif;font-size:30px;font-weight:600;margin:0 0 8px;line-height:1.25;}
+  .cta .kw strong{color:var(--accent-deep);}
+  .cta .why{margin:0;color:var(--muted);font-size:15px;}
+  .disclosure{font-size:14px;line-height:1.55;margin:22px 0 0;}
+  h2{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:600;font-size:18px;margin:26px 0 8px;}
+  ol{padding-left:22px;margin:0 0 14px;}
+  li{margin-bottom:6px;}
+  .note{font-size:13px;color:var(--muted);border-left:2px solid var(--border);padding-left:12px;margin:18px 0 0;}
+  .foot{font-size:13px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;margin-top:26px;line-height:1.7;}
+  .print-hint{max-width:680px;margin:20px auto 0;text-align:center;}
+  .print-hint button{font-size:15px;font-weight:600;color:#fff;background:var(--accent);border:none;border-radius:8px;padding:11px 20px;cursor:pointer;}
+  .print-hint button:hover{background:var(--accent-deep);}
+  a{color:var(--accent-deep);}
+  @media print{
+    body{background:#fff;font-size:12pt;}
+    .sheet{border:none;margin:0;padding:0 8pt;max-width:none;}
+    .print-hint{display:none;}
+  }
+</style>
+</head>
+<body>
+  <div class="print-hint"><button onclick="window.print()">Print this handout</button></div>
+  <div class="sheet">
+    <p class="eyebrow">SMS Assistant</p>
+    <h1>Get group texts: event reminders, RSVPs, volunteer sign-ups, carpools</h1>
+    <p class="sub">This is the handout distributed at in-person meetings. There is no form to fill out — you join by texting.</p>
+
+    <div class="cta">
+      <p class="kw">Text <strong>JOIN</strong> to <strong>(425)&nbsp;534-5348</strong></p>
+      <p class="why">from the mobile number you want messages sent to</p>
+    </div>
+
+    <h2>What happens next</h2>
+    <ol>
+      <li>You are asked which group you are joining (or add the group code yourself — for example, text <strong>JOIN EQ</strong>).</li>
+      <li>You are asked for your name.</li>
+      <li>You get a confirmation text, and then coordination messages for your group.</li>
+    </ol>
+
+    <p class="disclosure">
+      By texting JOIN you agree to receive informational and coordination text messages from SMS Assistant, operated by Peter Nielson.
+      Msg frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to cancel, <strong>HELP</strong> for help.
+    </p>
+
+    <p class="note">Consent is optional. It is not required to attend activities or to be a member of any group. We never add a number without a text from that number.</p>
+
+    <div class="foot">
+      Terms: nielsonpa.github.io/sms-policy/terms &nbsp;·&nbsp; Privacy: nielsonpa.github.io/sms-policy/privacy<br>
+      Questions? nielsonpa@gmail.com · 801-921-9714 &nbsp;·&nbsp; <a href="../">SMS Assistant home</a>
+    </div>
+  </div>
+</body>
+</html>
